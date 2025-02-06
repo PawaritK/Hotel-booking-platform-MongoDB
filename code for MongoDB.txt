@@ -1,0 +1,378 @@
+use Cns
+
+db.createCollection("customer")
+
+db.customer.insertMany([
+{_id:"userid_1",username:"Niphat",surname:"Chaisawat",gender:"male",age:20,picture:"รูปคน",payment_id:"payid_1"},
+{_id:"userid_2",username:"Pawarit",surname:"Kluewan",gender:"male",age:20,picture:"รูปคน",payment_id:"payid_2"},
+{_id:"userid_3",username:"Harry",surname:"Kane",gender:"male",age:32,picture:"รูปคน",payment_id:"payid_3"},
+{_id:"userid_4",username:"James",surname:"Maddison",gender:"male",age:24,picture:"รูปคน",payment_id:"payid_4"},
+{_id:"userid_5",username:"Brennan",surname:"Johnson",gender:"male",age:22,picture:"รูปคน",payment_id:"payid_5"},
+{_id:"userid_6",username:"Dominic",surname:"Solanke",gender:"male",age:22,picture:"รูปคน",payment_id:"payid_6"},
+{_id:"userid_7",username:"Micky",surname:"Vandefen",gender:"female",age:20,picture:"รูปคน",payment_id:"payid_7"},
+{_id:"userid_8",username:"Christan",surname:"Romero",gender:"male",age:23,picture:"รูปคน",payment_id:"payid_8"},
+{_id:"userid_9",username:"Alfie",surname:"Whiteman",gender:"female",age:26,picture:"รูปคน",payment_id:"payid_9"},
+{_id:"userid_110",username:"Mikey",surname:"Moore",gender:"female",age:29,picture:"รูปคน",payment_id:"payid_10"}
+])
+
+db.createCollection("customer_experience")
+
+db.customer_experience.insertMany([
+{_id:"userid_2",picture:"รูปภาพประกอบการรีวิว",review:"ห้องสวยสะอาด",rating:4,room_id:"roomid_1",payrecordID:"payrecid_2"},
+{_id:"userid_3",picture:"รูปภาพประกอบการรีวิว",review:"ห้องสวยแต่ พนักงานบริการไม่ค่อยดี",rating:2,room_id:"roomid_1",payrecordID:"payrecid_9"},
+{_id:"userid_9",picture:"รูปภาพประกอบการรีวิว",review:"ห้องสวย คุ้มค่า คุ้มราคา",rating:5,room_id:"roomid_2",payrecordID:"payrecid_4"},
+{_id:"userid_10",picture:"รูปภาพประกอบการรีวิว",review:"ดีเยี่ยม วิวสวย แนะนำเลย ห้องสวยมาก",rating:5,room_id:"roomid_2",payrecordID:"payrecid_5"},
+{_id:"userid_8",picture:"รูปภาพประกอบการรีวิว",review:"พนักงานบริการไม่ค่อยดี",rating:3,room_id:"roomid_1",payrecordID:"payrecid_3"},
+{_id:"userid_5",picture:"รูปภาพประกอบการรีวิว",review:"ดีเยี่ยม วิวสวย ห้องสวยมาก",rating:4,room_id:"roomid_8",payrecordID:"payrecid_6"},
+{_id:"userid_7",picture:"รูปภาพประกอบการรีวิว",review:"พนักงานบริการไม่ค่อยดี ห้องสวย",rating:3,room_id:"roomid_3",payrecordID:"payrecid_8"},
+{_id:"userid_6",picture:"รูปภาพประกอบการรีวิว",review:"พนักงานบริการไม่ค่อยดี ห้องไม่ตรงปก ผิดหวัง",rating:1,room_id:"roomid_9",payrecordID:"payrecid_7"},
+{_id:"userid_1",picture:"รูปภาพประกอบการรีวิว",review:"ห้องสวยสะอาด ตรงปกแนะนำเลย",rating:5,room_id:"roomid_20",payrecordID:"payrecid_12"},
+{_id:"userid_4",picture:"รูปภาพประกอบการรีวิว",review:"ห้องไม่ตรงปก ผิดหวัง",rating:1,room_id:"roomid_2",payrecordID:"payrecid_4"}
+])
+
+db.createCollection("payment_system")
+
+db.payment_system.insertMany([
+{_id:"payid_1",payment_bank:"SCB",number:3994084237,user_id:"userid_1"},
+{_id:"payid_2",payment_bank:"Kbank",number:3657284925,user_id:"userid_2"},
+{_id:"payid_3",payment_bank:"NEXT",number:4353253456,user_id:"userid_3"},
+{_id:"payid_4",payment_bank:"Kbank",number:5365345645,user_id:"userid_4"},
+{_id:"payid_5",payment_bank:"PayPal",number:8590384453,user_id:"userid_5"},
+{_id:"payid_6",payment_bank:"SCB",number:4656675324,user_id:"userid_6"},
+{_id:"payid_7",payment_bank:"SCB",number:5364711280,user_id:"userid_7"},
+{_id:"payid_8",payment_bank:"Kbank",number:4251476098,user_id:"userid_8"},
+{_id:"payid_9",payment_bank:"Kbank",number:7867568790,user_id:"userid_9"},
+{_id:"payid_10",payment_bank:"PayPal",number:3909878790,user_id:"userid_10"}
+])
+
+db.createCollection("paymentRecord_system")
+db.paymentRecord_system.insertMany([
+{_id:"payrecid_1",booking_id:"tbookid_1",payment_id:"payid_1",user_id:"userid_1"},
+{_id:"payrecid_2",booking_id:"tbookid_2",payment_id:"payid_2",user_id:"userid_2"},
+{_id:"payrecid_3",booking_id:"tbookid_3",payment_id:"payid_8",user_id:"userid_8"},
+{_id:"payrecid_4",booking_id:"tbookid_4",payment_id:"payid_9",user_id:"userid_9"},
+{_id:"payrecid_5",booking_id:"tbookid_5",payment_id:"payid_10",user_id:"userid_10"},
+{_id:"payrecid_6",booking_id:"tbookid_6",payment_id:"payid_5",user_id:"userid_5"},
+{_id:"payrecid_7",booking_id:"tbookid_7",payment_id:"payid_6",user_id:"userid_6"},
+{_id:"payrecid_8",booking_id:"tbookid_8",payment_id:"payid_7",user_id:"userid_7"},
+{_id:"payrecid_9",booking_id:"tbookid_9",payment_id:"payid_3",user_id:"userid_3"},
+{_id:"payrecid_10",booking_id:"tbookid_10",payment_id:"payid_4",user_id:"userid_4"},
+{_id:"payrecid_11",booking_id:"tbookid_11",payment_id:"payid_1",user_id:"userid_1"},
+{_id:"payrecid_12",booking_id:"tbookid_12",payment_id:"payid_1",user_id:"userid_1"},
+{_id:"payrecid_13",booking_id:"tbookid_13",payment_id:"payid_2",user_id:"userid_2"},
+{_id:"payrecid_14",booking_id:"tbookid_14",payment_id:"payid_6",user_id:"userid_6"},
+{_id:"payrecid_15",booking_id:"tbookid_15",payment_id:"payid_4",user_id:"userid_4"},
+{_id:"payrecid_16",booking_id:"tbookid_24",payment_id:"payid_10",user_id:"userid_10"},
+{_id:"payrecid_17",booking_id:"tbookid_25",payment_id:"payid_4",user_id:"userid_14"}
+])
+
+db.createCollection("hotel_information")
+
+db.hotel_information.insertMany([
+{_id:"hotelid_1",hotel_name:"Vonnapha Hotel",location:"111/43",picture:"รูปโรงแรม",room_id:["roomid_1","roomid_3"]},
+{_id:"hotelid_2",hotel_name:"Bangsan Herritage",location:"99/87",picture:"รูปโรงแรม",room_id:["roomid_2","roomid_4","roomid_5"]},
+{_id:"hotelid_3",hotel_name:"D2 Hotel",location:"101/334",picture:"รูปโรงแรม",room_id:["roomid_11","roomid_12","roomid_13","roomid_14"]},
+{_id:"hotelid_4",hotel_name:"Bangsan Sleep",location:"33/99",picture:"รูปโรงแรม",room_id:["roomid_15"]},
+{_id:"hotelid_5",hotel_name:"Vonnapha Villa",location:"121/78",picture:"รูปโรงแรม",room_id:["roomid_19","roomid_20"]},
+{_id:"hotelid_6",hotel_name:"Lamthan Hotel",location:"100/54",picture:"รูปโรงแรม",room_id:["roomid_16"]},
+{_id:"hotelid_7",hotel_name:"Bangsan Villa",location:"100/88",picture:"รูปโรงแรม",room_id:["roomid_17","roomid_18"]},
+{_id:"hotelid_8",hotel_name:"Seabreeze",location:"77/43",picture:"รูปโรงแรม",room_id:["roomid_6","roomid_7"]},
+{_id:"hotelid_9",hotel_name:"The Tide Resort",location:"109/56",picture:"รูปโรงแรม",room_id:["roomid_9","roomid_10"]},
+{_id:"hotelid_10",hotel_name:"OYO 502 Hotel",location:"111/90",picture:"รูปโรงแรม",room_id:["roomid_8"]}
+])
+
+db.createCollection("transaction_booking")
+
+db.transaction_booking.insertMany([
+{_id:"tbookid_1",user_id:"userid_1",hotel_id:"hotelid_2",room_id:"roomid_5"
+,check_in:"10/26/2567",check_out:"10/28/2567",day:2
+,price:1200,all_price:2400,detail:"",discount:"",total_price:2400
+,payment_id:"payid_1",booking_date:"10/25/2567",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_1"},
+
+{_id:"tbookid_2",user_id:"userid_2",hotel_id:"hotelid_2",room_id:"roomid_2"
+,check_in:"11/14/2567",check_out:"11/18/2567",day:4
+,price:2000,all_price:8000,detail:"50_percent_off",discount:4000,total_price:4000
+,payment_id:"payid_2",booking_date:"11/12/2567",prohotel_id:"prohotelid_2",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_2"},
+
+{_id:"tbookid_3",user_id:"userid_8",hotel_id:"hotelid_1",room_id:"roomid_1"
+,check_in:"11/26/2567",check_out:"11/29/2567",day:3
+,price:300,all_price:900,detail:"",discount:"",total_price:900
+,payment_id:"payid_8",booking_date:"11/24/2567",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_8"},
+
+{_id:"tbookid_4",user_id:"userid_9",hotel_id:"hotelid_3",room_id:"roomid_14"
+,check_in:"11/30/2567",check_out:"12/2/2567",day:3
+,price:600,all_price:1800,detail:"free breakfast",discount:"",total_price:1800
+,payment_id:"payid_9",booking_date:"11/29/2567",prohotel_id:"prohotelid_7",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_9"},
+
+{_id:"tbookid_5",user_id:"userid_10",hotel_id:"hotelid_1",room_id:"roomid_3"
+,check_in:"12/28/2567",check_out:"1/2/2068",day:5
+,price:600,all_price:3000,detail:"",discount:"",total_price:3000
+,payment_id:"payid_10",booking_date:"12/26/2567",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_10"},
+
+{_id:"tbookid_6",user_id:"userid_5",hotel_id:"hotelid_10",room_id:"roomid_8"
+,check_in:"12/30/2567",check_out:"1/2/2068",day:3
+,price:900,all_price:2700,detail:"50_percent_off",discount:1350,total_price:1350
+,payment_id:"payid_5",booking_date:"12/28/2567",prohotel_id:"prohotelid_1",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_6"},
+
+{_id:"tbookid_7",user_id:"userid_6",hotel_id:"hotelid_9",room_id:"roomid_9"
+,check_in:"12/30/2567",check_out:"1/3/2568",day:4
+,price:3000,all_price:12000,detail:"50_percent_off",discount:6000,total_price:6000
+,payment_id:"payid_6",booking_date:"12/29/2567",prohotel_id:"",procom_id:"procomid_3"
+,confirm:"confirm",paymentrecord_id:"payrecid_7"},
+
+{_id:"tbookid_8",user_id:"userid_7",hotel_id:"hotelid_1",room_id:"roomid_3"
+,check_in:"1/1/2568",check_out:"1/4/2568",day:3
+,price:600,all_price:1800,detail:"",discount:"",total_price:1800
+,payment_id:"payid_7",booking_date:"12/30/2567",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_8"},
+
+{_id:"tbookid_9",user_id:"userid_3",hotel_id:"hotelid_6",room_id:"roomid_16"
+,check_in:"1/1/2568",check_out:"1/4/2568",day:3
+,price:2000,all_price:6000,detail:"",discount:"",total_price:6000
+,payment_id:"payid_3",booking_date:"12/30/2567",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_9"},
+
+{_id:"tbookid_10",user_id:"userid_9",hotel_id:"hotelid_3",room_id:"roomid_14"
+,check_in:"1/3/2568",check_out:"1/4/2568",day:1
+,price:600,all_price:600,detail:"free breakfast",discount:"",total_price:600
+,payment_id:"payid_9",booking_date:"12/30/2567",prohotel_id:"prohotelid_8",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_10"},
+
+{_id:"tbookid_11",user_id:"userid_1",hotel_id:"hotelid_4",room_id:"roomid_15"
+,check_in:"1/3/2568",check_out:"1/4/2568",day:2
+,price:2200,all_price:4400,detail:"20_percent_off",discount:880,total_price:3520
+,payment_id:"payid_1",booking_date:"1/1/2568",prohotel_id:"",procom_id:"procomid_6"
+,confirm:"confirm",paymentrecord_id:"payrecid_11"},
+
+{_id:"tbookid_12",user_id:"userid_1",hotel_id:"hotelid_5",room_id:"roomid_20"
+,check_in:"1/16/2568",check_out:"1/17/2568",day:1
+,price:4500,all_price:4500,detail:"",discount:"",total_price:4500
+,payment_id:"payid_1",booking_date:"1/13/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_2"},
+
+{_id:"tbookid_13",user_id:"userid_2",hotel_id:"hotelid_8",room_id:"roomid_16"
+,check_in:"1/17/2568",check_out:"1/20/2568",day:3
+,price:2000,all_price:6000,detail:"",discount:"",total_price:6000
+,payment_id:"payid_2",booking_date:"1/16/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_13"},
+
+{_id:"tbookid_14",user_id:"userid_6",hotel_id:"hotelid_7",room_id:"roomid_17"
+,check_in:"1/20/2567",check_out:"1/23/0257",day:2
+,price:2500,all_price:5000,detail:"",discount:"",total_price:5000
+,payment_id:"payid_6",booking_date:"1/18/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_14"},
+
+{_id:"tbookid_15",user_id:"userid_4",hotel_id:"hotelid_3",room_id:"roomid_14"
+,check_in:"2/3/2567",check_out:"2/5/2567",day:1
+,price:600,all_price:600,detail:"",discount:"",total_price:600
+,payment_id:"payid_4",booking_date:"2/1/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_15"},
+
+{_id:"tbookid_16",user_id:"userid_6",hotel_id:"hotelid_10",room_id:"roomid_23"
+,check_in:"2/13/2567",check_out:"2/14/2567",day:1
+,price:4500,all_price:4500,detail:"",discount:"",total_price:4500
+,payment_id:"payid_6",booking_date:"2/12/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_17",user_id:"userid_9",hotel_id:"hotelid_3",room_id:"roomid_22"
+,check_in:"2/16/2567",check_out:"2/18/2567",day:2
+,price:700,all_price:1400,detail:"free breakfast",discount:"",total_price:1400
+,payment_id:"payid_9",booking_date:"2/14/2568",prohotel_id:"prohotelid_8",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_18",user_id:"userid_5",hotel_id:"hotelid_10",room_id:"roomid_24"
+,check_in:"2/17/2567",check_out:"2/19/2567",day:2
+,price:2500,all_price:5000,detail:"50_percent_off",discount:2500,total_price:2500
+,payment_id:"payid_5",booking_date:"2/14/2568",prohotel_id:"prohotelid_1",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_19",user_id:"userid_10",hotel_id:"hotelid_3",room_id:"roomid_21"
+,check_in:"2/20/2567",check_out:"2/22/2567",day:2
+,price:700,all_price:1400,detail:"",discount:"",total_price:1400
+,payment_id:"payid_10",booking_date:"2/15/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_20",user_id:"userid_7",hotel_id:"hotelid_3",room_id:"roomid_22"
+,check_in:"2/19/2567",check_out:"2/22/2567",day:3
+,price:700,all_price:2100,detail:"",discount:"",total_price:2100
+,payment_id:"payid_7",booking_date:"2/16/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_21",user_id:"userid_4",hotel_id:"hotelid_10",room_id:"roomid_8"
+,check_in:"2/26/2568",check_out:"2/28/2568",day:2
+,price:900,all_price:1800,detail:"",discount:"",total_price:2100
+,payment_id:"payid_4",booking_date:"3/2/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_22",user_id:"userid_3",hotel_id:"hotelid_9",room_id:"roomid_9"
+,check_in:"3/5/2568",check_out:"3/9/2568",day:4
+,price:900,all_price:3600,detail:"50_percent_off",discount:1800,total_price:1800
+,payment_id:"payid_3",booking_date:"3/1/2568",prohotel_id:"prohotelid_1",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_23",user_id:"userid_8",hotel_id:"hotelid_10",room_id:"roomid_8"
+,check_in:"3/9/2568",check_out:"3/11/2568",day:2
+,price:900,all_price:1800,detail:"",discount:"",total_price:1800
+,payment_id:"payid_8",booking_date:"3/5/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_24",user_id:"userid_10",hotel_id:"hotelid_9",room_id:"roomid_9"
+,check_in:"3/9/2568",check_out:"3/11/2568",day:2
+,price:3000,all_price:6000,detail:"",discount:"",total_price:6000
+,payment_id:"payid_10",booking_date:"3/1/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_16"},
+
+{_id:"tbookid_25",user_id:"userid_4",hotel_id:"hotelid_10",room_id:"roomid_8"
+,check_in:"3/24/2568",check_out:"3/26/2568",day:2
+,price:900,all_price:1800,detail:"",discount:"",total_price:1800
+,payment_id:"payid_4",booking_date:"3/20/2568",prohotel_id:"",procom_id:""
+,confirm:"confirm",paymentrecord_id:"payrecid_17"},
+
+{_id:"tbookid_26",user_id:"userid_5",hotel_id:"hotelid_6",room_id:"roomid_16"
+,check_in:"3/25/2568",check_out:"3/28/2568",day:3
+,price:2000,all_price:6000,detail:"",discount:"",total_price:6000
+,payment_id:"payid_5",booking_date:"3/20/2568",prohotel_id:"",procom_id:""
+,confirm:"cancel",paymentrecord_id:""},
+
+{_id:"tbookid_27",user_id:"userid_1",hotel_id:"hotelid_2",room_id:"roomid_2"
+,check_in:"4/1/2568",check_out:"4/3/2568",day:2
+,price:2000,all_price:4000,detail:"50_percent_off",discount:"2000",total_price:2000
+,payment_id:"payid_1",booking_date:"3/29/2568",prohotel_id:"",procom_id:"procomid_6"
+,confirm:"cancel",paymentrecord_id:""},
+])
+
+db.createCollection("room_information")
+
+db.room_information.insertMany([
+{_id:"roomid_1",room_type:"Normal",amenities:"One bed, free wifi",picture:"รูปห้อง",room_price:300,hotel_id:"hotelid_1"},
+{_id:"roomid_2",room_type:"Luxury",amenities:"King'size bed, free wifi, beach view, breakfast, vip parking",picture:"รูปห้อง",room_price:2000,hotel_id:"hotelid_2"},
+{_id:"roomid_3",room_type:"Normal",amenities:"two bed, free wifi, women only",picture:"รูปห้อง",room_price:600,hotel_id:"hotelid_1"},
+{_id:"roomid_4",room_type:"Normal",amenities:"one bed, free wifi",picture:"รูปห้อง",room_price:300,hotel_id:"hotelid_2"},
+{_id:"roomid_5",room_type:"Deluxe",amenities:"two bed, free wifi, beach view, breakfast",picture:"รูปห้อง",room_price:1200,hotel_id:"hotelid_2"},
+{_id:"roomid_6",room_type:"Normal",amenities:"one bed, free wifi, women only",picture:"รูปห้อง",room_price:500,hotel_id:"hotelid_8"},
+{_id:"roomid_7",room_type:"Deluxe",amenities:"two bed, free wifi, beach view, breakfast",picture:"รูปห้อง",room_price:1200,hotel_id:"hotelid_8"},
+{_id:"roomid_8",room_type:"Deluxe",amenities:"one bed, free wifi, beach view, breakfast",picture:"รูปห้อง",room_price:900,hotel_id:"hotelid_10"},
+{_id:"roomid_9",room_type:"Luxury",amenities:"King'size bed, free wifi, beach view, breakfast, vip parking",picture:"รูปห้อง",room_price:3000,hotel_id:"hotelid_9"},
+{_id:"roomid_10",room_type:"Luxury",amenities:"King'size bed, free wifi, beach view, breakfast, vip parking",picture:"รูปห้อง",room_price:3000,hotel_id:"hotelid_9"},
+{_id:"roomid_11",room_type:"Normal",amenities:"two bed, free wifi, women only",picture:"รูปห้อง",room_price:700,hotel_id:"hotelid_3"},
+{_id:"roomid_12",room_type:"Normal",amenities:"two bed, free wifi, women only",picture:"รูปห้อง",room_price:700,hotel_id:"hotelid_4"},
+{_id:"roomid_13",room_type:"Normal",amenities:"One bed, free wifi, women only",picture:"รูปห้อง",room_price:600,hotel_id:"hotelid_5"},
+{_id:"roomid_14",room_type:"Normal",amenities:"One bed, free wifi, women only",picture:"รูปห้อง",room_price:600,hotel_id:"hotelid_6"},
+{_id:"roomid_15",room_type:"Deluxe",amenities:"King'size bed, free wifi, beach view",picture:"รูปห้อง",room_price:2200,hotel_id:"hotelid_4"},
+{_id:"roomid_16",room_type:"Deluxe",amenities:"King'size bed, free wifi, beach view",picture:"รูปห้อง",room_price:2000,hotel_id:"hotelid_8"},
+{_id:"roomid_17",room_type:"Deluxe",amenities:"King'size bed, free wifi, beach view, breakfast",picture:"รูปห้อง",room_price:2500,hotel_id:"hotelid_9"},
+{_id:"roomid_18",room_type:"Luxury",amenities:"two bed, free wifi, beach view, breakfast,vip parking",picture:"รูปห้อง",room_price:3000,hotel_id:"hotelid_10"},
+{_id:"roomid_19",room_type:"Luxury",amenities:"two bed, free wifi, beach view, breakfast,vip parking",picture:"รูปห้อง",room_price:3000,hotel_id:"hotelid_4"},
+{_id:"roomid_20",room_type:"Luxury",amenities:"King'size bed, free wifi, beach view, breakfast,vip parking",picture:"รูปห้อง",room_price:4500,hotel_id:"hotelid_5"},
+{_id:"roomid_21",room_type:"Normal",amenities:"One bed, free wifi, women only",picture:"รูปห้อง",room_price:700,hotel_id:"hotelid_3"},
+{_id:"roomid_22",room_type:"Normal",amenities:"One bed, free wifi, women only",picture:"รูปห้อง",room_price:700,hotel_id:"hotelid_3"},
+{_id:"roomid_23",room_type:"Luxury",amenities:"King'size bed, free wifi, beach view, breakfast,vip parking",picture:"รูปห้อง",room_price:4500,hotel_id:"hotelid_10"},
+{_id:"roomid_24",room_type:"Deluxe",amenities:"King'size bed, free wifi, beach view",picture:"รูปห้อง",room_price:2700,hotel_id:"hotelid_10"},
+{_id:"roomid_25",room_type:"Deluxe",amenities:"King'size bed, free wifi, beach view, breakfast",picture:"รูปห้อง",room_price:2500,hotel_id:"hotelid_10"}
+])
+
+db.createCollection("hotel_promotion")
+
+db.hotel_promotion.insertMany([
+{_id:"prohotelid_1",detail:"sale 50 percent all catagory room",hotel_id:"hotelid_10"},
+{_id:"prohotelid_2",detail:"sale 50 percent LUXURY room",hotel_id:"hotelid_2"},
+{_id:"prohotelid_3",detail:"sale 50 percent LUXURY room",hotel_id:"hotelid_9"},
+{_id:"prohotelid_4",detail:"sale 50 percent DELUXE room",hotel_id:"hotelid_10"},
+{_id:"prohotelid_5",detail:"sale 20 percent DELUXE room",hotel_id:"hotelid_8"},
+{_id:"prohotelid_6",detail:"sale 20 percent DELUXE room",hotel_id:"hotelid_4"},
+{_id:"prohotelid_7",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"prohotelid_8",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"prohotelid_9",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"prohotelid_10",detail:"sale 20 percent NORMAL room",hotel_id:"hotelid_3"}
+])
+
+db.createCollection("Company_promotion")
+
+db.Company_promotion.insertMany([
+{_id:"procomid_1",detail:"sale 50 percent all catagory room",hotel_id:"hotelid_10"},
+{_id:"procomid_2",detail:"sale 50 percent LUXURY room",hotel_id:"hotelid_2"},
+{_id:"procomid_3",detail:"sale 50 percent LUXURY room",hotel_id:"hotelid_9"},
+{_id:"procomid_4",detail:"sale 90 percent DELUXE room",hotel_id:"hotelid_10"},
+{_id:"procomid_5",detail:"sale 50 percent DELUXE room",hotel_id:"hotelid_8"},
+{_id:"procomid_6",detail:"sale 20 percent DELUXE room",hotel_id:"hotelid_4"},
+{_id:"procomid_7",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"procomid_8",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"procomid_9",detail:"free breakfast for normal room",hotel_id:"hotelid_3"},
+{_id:"procomid_10",detail:"sale 20 percent NORMAL room",hotel_id:"hotelid_3"}
+])
+
+db.createCollection("cancellation")
+
+db.cancellation.insertMany([
+{_id:"tbookid_6",cause:"เกิดเหตุจำเป็นฉุกเฉิน"},
+{_id:"tbookid_7",cause:"จองผิด(ต้องการจองเตียงคู่แต่ที่จองไปเป็นเตียงเดียว)"},
+{_id:"tbookid_8",cause:"มีเหตุจำเป็นฉุกเฉิน"},
+{_id:"tbookid_9",cause:"จองวันผิด"},
+{_id:"tbookid_20",cause:"จองผิดจาก 1คืนเป็น 2คืน"},
+{_id:"tbookid_21",cause:"มีเหตุจำเป็นฉุกเฉิน"},
+{_id:"tbookid_22",cause:"มีเหตุจำเป็นฉุกเฉิน"},
+{_id:"tbookid_23",cause:"จองผิดจาก 2คืนเป็น 3คืน"},
+{_id:"tbookid_26",cause:"ลืมใส่โค้ดส่วนลด"},
+{_id:"tbookid_27",cause:"จองผิด(ต้องการจองเตียงคู่แต่ที่จองไปเป็นเตียงเดียว)"}
+])
+
+db.createCollection("interesting_booking")
+
+db.interesting_booking.insertMany([
+{_id:"interid_1",user_id:"userid_1",hotel_id:"hotelid_2",room_id:"roomid_5",status:"like",book:"",booking_id:""},
+{_id:"interid_2",user_id:"userid_2",hotel_id:"hotelid_2",room_id:"roomid_2",status:"like",book:"",booking_id:""},
+{_id:"interid_3",user_id:"userid_3",hotel_id:"hotelid_5",room_id:"roomid_20",status:"like",book:"",booking_id:""},
+{_id:"interid_4",user_id:"userid_1",hotel_id:"hotelid_2",room_id:"roomid_5",status:"like",book:"",booking_id:""},
+{_id:"interid_5",user_id:"userid_9",hotel_id:"hotelid_3",room_id:"roomid_14",status:"unlike",book:"book",booking_id:"tbookid_17"},
+{_id:"interid_6",user_id:"userid_6",hotel_id:"hotelid_10",room_id:"roomid_23",status:"like",book:"book",booking_id:"tbookid_16"},
+{_id:"interid_7",user_id:"userid_8",hotel_id:"hotelid_5",room_id:"roomid_20",status:"unlike",book:"",booking_id:""},
+{_id:"interid_8",user_id:"userid_9",hotel_id:"hotelid_6",room_id:"roomid_16",status:"unlike",book:"",booking_id:""},
+{_id:"interid_9",user_id:"userid_7",hotel_id:"hotelid_1",room_id:"roomid_3",status:"like",book:"book",booking_id:"tbookid_8"},
+{_id:"interid_10",user_id:"userid_10",hotel_id:"hotelid_10",room_id:"roomid_23",status:"like",book:"",booking_id:""},
+])
+
+db.createCollection("search_information")
+
+db.search_information.insertMany([
+{_id:"searchid_1",user_id:"userid_1",seach:"ห้องพักระดับ Luxury วิวสวยๆ",time:"20:30:46"},
+{_id:"searchid_2",user_id:"userid_2",seach:"ห้องพักระดับ Deluxe",time:"22:43:41"},
+{_id:"searchid_3",user_id:"userid_3",seach:"ห้องพักที่มีอาหารเช้า",time:"7:12:30"},
+{_id:"searchid_4",user_id:"userid_8",seach:"ห้องพักคืนละไม่เกิน 1000 บาท",time:"12:45:00"},
+{_id:"searchid_5",user_id:"userid_8",seach:"ห้องพักคืนละไม่เกิน 1000 บาท มีอาหารเช้าให้",time:"12:45:59"},
+{_id:"searchid_6",user_id:"userid_9",seach:"ห้องพักคืนละไม่เกิน 800 บาท",time:"12:47:36"},
+{_id:"searchid_7",user_id:"userid_10",seach:"โรงแรมหรือห้องพักหญิงเท่านั้่น ราคาถูก",time:"13:10:29"},
+{_id:"searchid_8",user_id:"userid_6",seach:"ห้องพักระดับ Luxury โค้ดส่วนลดให้",time:"16:45:30"},
+{_id:"searchid_9",user_id:"userid_7",seach:"โรงแรมหรือห้องพักหญิงเท่านั้่น ราคาถูก",time:"16:53:00"},
+{_id:"searchid_10",user_id:"userid_1",seach:"ห้องพักระดับ Luxury มี vip parking",time:"20:35:46"}
+])
+
+db.createCollection("user_location")
+
+db.user_location.insertMany([
+{_id:"locationid_1",user_id:"userid_1",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_2",user_id:"userid_2",location:"coordinate{13.3611, 100.9847}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_3",user_id:"userid_3",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_4",user_id:"userid_4",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_5",user_id:"userid_5",location:"coordinate{13.3611, 100.9847}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_6",user_id:"userid_6",location:"coordinate{7.0084, 100.4767}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_7",user_id:"userid_7",location:"coordinate{14.9736, 102.0833}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_8",user_id:"userid_8",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_9",user_id:"userid_9",location:"coordinate{13.3611, 100.9847}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_10",user_id:"userid_10",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 6:00:00"},
+{_id:"locationid_11",user_id:"userid_1",location:"coordinate{98.9873, 18.7061}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_12",user_id:"userid_2",location:"coordinate{102.0833, 14.9736}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_13",user_id:"userid_3",location:"coordinate{7.8804, 98.3923}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_14",user_id:"userid_4",location:"coordinate{14.9736, 102.0833}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_15",user_id:"userid_5",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_16",user_id:"userid_6",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_17",user_id:"userid_7",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_18",user_id:"userid_8",location:"coordinate{7.0084, 100.4767}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_19",user_id:"userid_9",location:"coordinate{100.5018, 13.7563}",time:"1/1/2568 9:00:00"},
+{_id:"locationid_20",user_id:"userid_10",location:"coordinate{13.3611, 100.9847}",time:"1/1/2568 9:00:00"}
+])
